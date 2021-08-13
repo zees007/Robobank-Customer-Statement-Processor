@@ -50,3 +50,12 @@ Case 6: Any other situation (Internal server error)
 Eg. Trying to fetch a transaction reference(1000) which is not exist
 ![internal_server_error](https://user-images.githubusercontent.com/41251660/129365643-98e0c4e7-1174-41dc-8c91-2d7cc8e1bdf0.png)
 
+Integration Test Results:
+
+![IntegrationTestResult](https://user-images.githubusercontent.com/41251660/129392382-3c99099c-448d-4f2e-a17c-13af589b64b1.JPG)
+
+Unit Test Result:
+
+![JunitTestResult](https://user-images.githubusercontent.com/41251660/129392510-9bc4c59d-2600-4a2a-a517-d79d34f43c40.JPG)
+
+
