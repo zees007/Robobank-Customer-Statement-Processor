@@ -44,6 +44,17 @@ public class IntegrationTestRobobankApplication {
         Record record1 = recordRepository.findByTransactionRef(9876);
         assertEquals(9876, record1.getTransactionRef().intValue());
     }
+    
+     @Test
+    public void InternalServerErrorTest() throws Exception {
+
+        HttpEntity<String> entity = new HttpEntity<String>("", headers);
+        ResponseEntity<String> response = restTemplate.exchange(
+                createURLWithPort("/transaction/test"),
+                HttpMethod.GET, entity, String.class);
+
+        assertTrue(response.getBody().contains("INTERNAL_SERVER_ERROR"));
+    }
 
     private String createURLWithPort(String uri) {
         return "http://localhost:" + port + uri;
