@@ -14,6 +14,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import static org.junit.Assert.assertEquals;
+import static junit.framework.TestCase.assertTrue;
 
 /* Integration testing */
 
