@@ -113,5 +113,20 @@ public class RobobankApplicationTests {
         recordService.saveRecord(recordRequestDTO1);
         assertNotNull(recordRepository.findByTransactionRef(9999));
     }
+    
+     @Test
+    public void internalServerErrorTest(){
+        RecordRequestDTO recordRequestDTO = new RecordRequestDTO();
+        recordRequestDTO.setId(null);
+        recordRequestDTO.setTransactionRef(9999);
+        recordRequestDTO.setAccountNumber(87777);
+        recordRequestDTO.setStartBalance(50.0);
+        recordRequestDTO.setMutation(5.0);
+        recordRequestDTO.setEndBalance(55.0);
+        recordRequestDTO.setDescription("Successful_Case");
+        recordService.saveRecord(recordRequestDTO);
+        //fetching not exist transaction record
+        assertNull(recordRepository.findByTransactionRef(100));
+    }
 
 }
