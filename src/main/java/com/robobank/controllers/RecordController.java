@@ -45,6 +45,11 @@ public class RecordController {
             throw new RuntimeException(e);
         }
     }
+    
+    @GetMapping("/test")
+        public ResponseEntity<String> get() throws Exception{
+            throw new Exception("not nice");
+        }
 
 
 }
