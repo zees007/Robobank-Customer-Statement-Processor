@@ -13,6 +13,16 @@ Implemented REST Service which receives the customer statement as JSON as a POST
 1.	All Transactions will be unique.
 2.	The end balance validated (start balance +/- mutation = end balance)
 
+Validation Logic:
+((Start Balance + Mutation = End Balance) || (Start Balance - Mutation = End Balance)) && !hasDuplicateTxn  ---> Save Transaction Reference Record
+((Start Balance + Mutation = End Balance) || (Start Balance - Mutation = End Balance)) && hasDuplicateTxn  ---> Throw error and show custom error response
+((Start Balance + Mutation != End Balance) || (Start Balance - Mutation != End Balance)) && !hasDuplicateTxn  ---> Throw error and show custom error response
+((Start Balance + Mutation != End Balance) || (Start Balance - Mutation != End Balance)) && hasDuplicateTxn  ---> Throw error and show custom error response along with duplicate reference
+
+I've used ControllerAdvice for exception handling.
+
+
+
 Post End Point URL: http://localhost:8080/transaction/save
 
 Case 1 : When NO Duplicate reference & Correct End Balance
