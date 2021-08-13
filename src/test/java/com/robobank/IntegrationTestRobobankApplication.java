@@ -38,7 +38,7 @@ public class IntegrationTestRobobankApplication {
         HttpEntity<Record> entity = new HttpEntity<Record>(record, headers);
 
         ResponseEntity<String> response = restTemplate.exchange(
-                createURLWithPort("/save"),
+                createURLWithPort("/transaction/save"),
                 HttpMethod.POST, entity, String.class);
 
         Record record1 = recordRepository.findByTransactionRef(9876);
